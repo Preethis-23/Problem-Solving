@@ -1,17 +1,3 @@
-'''Given two strings s1 and s2, return True if s2 contains any permutation of s1, otherwise return False.
-
-Example:
-Input:
-ab
-eidbaooo
-
-Output:
-True
-
-Explanation:
-"ba" is present in s2, which is a permutation of "ab".'''
-
-
 from collections import Counter
 
 class Solution:
@@ -22,13 +8,13 @@ class Solution:
         l = 0
         out = ""
 
-        for r in range(len(s)):
-            if need[s[r]] > 0:
+        for i in range(len(s)):
+            if need[s[i]] > 0:
                 cnt -= 1
-            need[s[r]] -= 1
+            need[s[i]] -= 1
 
             while cnt == 0:
-                string = s[l:r + 1]
+                string = s[l:i + 1]
 
                 if out == "" or len(string) < len(out):
                     out = string
@@ -39,3 +25,6 @@ class Solution:
                     cnt += 1
                 l += 1
         return out
+
+        
+        
